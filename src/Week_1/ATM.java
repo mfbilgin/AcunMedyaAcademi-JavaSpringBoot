@@ -37,6 +37,10 @@ public class ATM {
             } else if (choice == 2) {
                 System.out.println("How much would you like to deposit?");
                 double depositAmount = scanner.nextDouble();
+                if (depositAmount < 0) {
+                    System.out.println("Invalid amount.");
+                    continue;
+                }
                 accountBalance += depositAmount;
                 System.out.println("Your new account balance is: $" + accountBalance);
                 System.out.println("-------------------------");
@@ -45,6 +49,8 @@ public class ATM {
                 double withdrawAmount = scanner.nextDouble();
                 if (withdrawAmount > accountBalance) {
                     System.out.println("Insufficient funds.");
+                } else if (withdrawAmount < 0) {
+                    System.out.println("Invalid amount.");
                 } else {
                     accountBalance -= withdrawAmount;
                     System.out.println("Your new account balance is: $" + accountBalance);

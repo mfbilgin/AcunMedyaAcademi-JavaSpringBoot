@@ -9,6 +9,10 @@ public class TrafficTicket {
 
         System.out.print("Enter the speed limit: ");
         int speed = scanner.nextInt();
+        if (speed < 0) {
+            System.out.println("Invalid speed limit.");
+            return;
+        }
 
         if (speed > speedLimit && speed <= speedLimit + 20) {
             System.out.println("You have exceeded the speed limit by 1-20 km/h. Your fine is ₺1000.");

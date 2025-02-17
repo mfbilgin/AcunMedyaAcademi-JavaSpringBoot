@@ -13,6 +13,11 @@ public class StudentPointCalculator {
         for (int i = 0; i < grades.length; i++) {
             System.out.print("Enter the grade of lesson " + (i + 1) + ": ");
             grades[i] = scanner.nextInt();
+            if (grades[i] < 0 || grades[i] > 100) {
+                System.out.println("Invalid grade. Please enter a grade between 0 and 100.");
+                i--;
+                continue;
+            }
             sum += grades[i];
             if (grades[i] > max) {
                 max = grades[i];
